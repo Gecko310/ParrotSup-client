@@ -174,7 +174,7 @@ function App() {
               </div>
             </div>
             <div>
-            <div className="viet-hoa text-3xl">THỰC PHẨM SỨC KHỎE</div>
+            <div className="viet-hoa text-3xl">THỰC CHÓ NGU PHẨM SỨC KHỎE</div>
               <div className="flex flex-wrap">
                 <Product name="Combo Dark Test + Vitamin D3 220 viên - Combo Tăng Test, Tăng Đề Kháng" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/cb-darktest-plus-d3-220v.jpg?v=1653987742000"></Product>
                 <Product name="[COMBO] Vital Protein Collagen + Vitamin C 1000mg - Hỗ trợ chức năng, tái tạo sụn khớp, Da Móng Tóc" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/e6eb1aa2-a311-4dd7-9376-26e919f1b7db.jpg?v=1655170860000"></Product>
