@@ -197,11 +197,11 @@ export default function NavBar() {
 
             <div className="ml-5"></div>
             <div className="flex items-center justify-center">
-              <a className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
+              <a href="http://localhost:3000/home/Login" className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
                 Sign In
               </a>
               <div className="w-[2px] h-[20px] bg-gray-500 mx-5 md:mx-0"></div>
-              <a className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
+              <a href="http://localhost:3000/home/Signup" className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
                 Sign Up
               </a>
             </div>

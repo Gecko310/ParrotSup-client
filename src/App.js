@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Home from "./components/Home";
 import Login from"./components/Login";
+import Signup from"./components/Signup";
 import { Routes, Route } from "react-router-dom";
 import {BrowserRouter} from "react-router-dom";
 function App() {
