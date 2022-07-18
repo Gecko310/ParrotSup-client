@@ -4,25 +4,35 @@ import Product from "./Product";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-
 function Home() {
   const [products, setProducts] = useState([]);
   const [isHoveringWhey, setIsHoveringWhey] = useState(false);
   const [isHoverBuyWhey, setIsHoverBuyWhey] = useState(false);
   const handleMouseOverBuyWhey = () => {
     setIsHoverBuyWhey(true);
-  }
+  };
   const handleMouseOutBuyWhey = () => {
     setIsHoverBuyWhey(false);
-  }
+  };
   const handleMouseOverWhey = () => {
     setIsHoveringWhey(true);
-  }
+  };
   const handleMouseOutWhey = () => {
     setIsHoveringWhey(false);
-  }
-  console.log("Re-render kakakak");
-
+  };
+  
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/v1/product")
+      .then((res) => {
+        console.log(res.data[0].name);
+        setProducts(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      }
+      );
+  }, [])
 
   return (
     <>
@@ -40,17 +50,31 @@ function Home() {
               </svg>
               DANH MỤC SẢN PHẨM
             </div>
-            <div className="flex items-center bg-slate-200 text-[14px] font-medium h-10 border-b border-neutral-800 relative" onMouseOver={handleMouseOverWhey} onMouseOut={handleMouseOutWhey}>
+            <div
+              className="flex items-center bg-slate-200 text-[14px] font-medium h-10 border-b border-neutral-800 relative"
+              onMouseOver={handleMouseOverWhey}
+              onMouseOut={handleMouseOutWhey}
+            >
               <img
                 className="h-8 w-8 mx-2"
                 src="https://bizweb.dktcdn.net/100/398/814/themes/854223/assets/menu_icon_3.png?1657274231192"
               ></img>
               Whey Protein
-              {isHoveringWhey ? <div className="absolute w-[300px] h-[120px] top-0 bg-slate-50 right-[-300px]" >
-                <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">Whey isolate</div>
-                <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">Whey hydrolize</div>
-                <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">Whey organic</div>
-              </div> : ''}
+              {isHoveringWhey ? (
+                <div className="absolute w-[300px] h-[120px] top-0 bg-slate-50 right-[-300px]">
+                  <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">
+                    Whey isolate
+                  </div>
+                  <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">
+                    Whey hydrolize
+                  </div>
+                  <div className="text-center font-medium h-10 border-b border-neutral-800 hover:text-red-500">
+                    Whey organic
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
             <div className="flex items-center bg-slate-200 text-[14px] font-medium h-10 border-b border-neutral-800">
               <img
@@ -152,33 +176,47 @@ function Home() {
                   className="h-9 mr-2 ml-2"
                 ></img>
                 Hướng dẫn trả góp
-
               </div>
-
             </div>
-            <div className='flex items-center h-full'><img src='/images/image.png ' className="h-full">
-            </img></div>
+            <div className="flex items-center h-full">
+              <img src="/images/image.png " className="h-full"></img>
+            </div>
           </div>
-
         </div>
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] bg-white flex">
           <div>
             <div>
-              <div className="viet-hoa text-3xl">WHEY PROTEIN - BỔ SUNG ĐẠM CẦN THIẾT</div>
+              <div className="viet-hoa text-3xl">
+                WHEY PROTEIN - BỔ SUNG ĐẠM CẦN THIẾT
+              </div>
               <div className="flex flex-wrap">
-                <Product name="Kevin Levrone Gold Isolate Whey Protein (2 KG)" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/d92fc569-a94f-407f-bfa5-1a6f8a1cebe9.jpg?v=1655566620000"></Product>
-                <Product name="Critical Whey Blend - Advanced Protein Blend (900G)" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/0392028f-8b74-4efb-ae17-228e19804f01.jpg?v=1654924504000"></Product>
-                <Product name="Túi Whey Gold Standard 1.47lbs" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/c30edc7a-8320-4772-b637-233c1d33c632.jpg?v=1639384692000"></Product>
-                <Product name="Whey WPC82 (3 KG)" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"></Product>
+                {/* <Product
+                  name="Kevin Levrone Gold Isolate Whey Protein (2 KG)"
+                  src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/d92fc569-a94f-407f-bfa5-1a6f8a1cebe9.jpg?v=1655566620000"
+                ></Product>
+                <Product
+                  name="Critical Whey Blend - Advanced Protein Blend (900G)"
+                  src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/0392028f-8b74-4efb-ae17-228e19804f01.jpg?v=1654924504000"
+                ></Product>
+                <Product
+                  name="Túi Whey Gold Standard 1.47lbs"
+                  src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/c30edc7a-8320-4772-b637-233c1d33c632.jpg?v=1639384692000"
+                ></Product>
+                <Product
+                  name="Whey WPC82 (3 KG)"
+                  src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"
+                ></Product> */}
+                {products.length == 0 ? "Loading..." : ""}
+                {products.map(product => {if (product.category == "Whey") {return <Product name={product.name} src={product.image}></Product>}})}
               </div>
             </div>
             <div>
-            <div className="viet-hoa text-3xl">THỰC CHÓ NGU PHẨM SỨC KHỎE</div>
+              <div className="viet-hoa text-3xl">
+                THỰC CHÓ NGU PHẨM SỨC KHỎE
+              </div>
               <div className="flex flex-wrap">
-                <Product name="Combo Dark Test + Vitamin D3 220 viên - Combo Tăng Test, Tăng Đề Kháng" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/cb-darktest-plus-d3-220v.jpg?v=1653987742000"></Product>
-                <Product name="[COMBO] Vital Protein Collagen + Vitamin C 1000mg - Hỗ trợ chức năng, tái tạo sụn khớp, Da Móng Tóc" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/e6eb1aa2-a311-4dd7-9376-26e919f1b7db.jpg?v=1655170860000"></Product>
-                <Product name="Combo Tăng Miễn Dịch, Sức khỏe Nam giới, bổ sung Vitamin D3, Kẽm, Tribulus" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/42961310-d4d6-42c9-9a35-635f284bbd00.jpg?v=1654048932000"></Product>
-                <Product name="Combo Hỗ trợ Xương Khớp - Vitamin D3 350 viên + Dầu cá Omega3 200 Viên" src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/89014494-0d81-41af-8e73-d2ea517f826f.jpg?v=1654048080000"></Product>
+              {products.length == 0 ? "Loading..." : ""}
+              {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
               </div>
             </div>
           </div>

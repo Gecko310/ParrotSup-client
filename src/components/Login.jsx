@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 function Login() {
     return (
-        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-gradient-to-t from-blue-600 to-pink-600">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
                 <h1 className="text-3xl font-semibold text-center text-red-300 underline">
                     Sign in
