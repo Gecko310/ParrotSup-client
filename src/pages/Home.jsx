@@ -1,13 +1,15 @@
-import NavBar from "./NavBar";
-import Footer from "./Footer";
-import Product from "./Product";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import Product from "../components/Product";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import MainLayout from '../layouts/MainLayout';
 
 function Home() {
   const [products, setProducts] = useState([]);
   const [isHoveringWhey, setIsHoveringWhey] = useState(false);
   const [isHoverBuyWhey, setIsHoverBuyWhey] = useState(false);
+  const [loading, setLoading] = useState(true);
   const handleMouseOverBuyWhey = () => {
     setIsHoverBuyWhey(true);
   };
@@ -44,6 +46,7 @@ function Home() {
       })
       .catch((err) => {
         console.log(err);
+<<<<<<< HEAD:src/components/Home.jsx
       });
 
     
@@ -54,10 +57,19 @@ function Home() {
     <>
       <NavBar />
       <button>Thêm sản phẩm</button>
+=======
+      }
+      )
+      .finally(() => setLoading(false))
+  }, [])
+
+  return (
+    <MainLayout>
+>>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
       <div className="min-h-[100vh]">
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] h-[500px] bg-black flex">
           <div className="w-[25%] overflow-x-visible h-full bg-gray-200">
-            <div className="flex items-center bg-[#2F4858] text-[14px] font-medium py-1 text-white">
+            <div className="flex items-center bg-[#2F4858] text-[14px] font-medium py-1 text-white h-[50px]">
               <svg
                 className="h-8 w-8 mx-2 fill-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +184,7 @@ function Home() {
             </div> */}
           </div>
           <div className="w-[75%] h-full bg-black overflow-hidden">
-            <div className="py-2 bg-white flex h-[10%]">
+            <div className="py-2 bg-white flex h-[50px] pl-2">
               <div className="hover:text-red-300 flex items-center oc-cho-font">
                 <img
                   src="https://bizweb.dktcdn.net/100/398/814/themes/854223/assets/policy_header_image_1.png?1656836949864"
@@ -203,7 +215,7 @@ function Home() {
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] bg-white flex">
           <div>
             <div>
-              <div className="viet-hoa text-3xl">
+              <div className="italic font-bold text-3xl hover:text-red-500">
                 WHEY PROTEIN - BỔ SUNG ĐẠM CẦN THIẾT
               </div>
               <div className="flex flex-wrap">
@@ -223,6 +235,7 @@ function Home() {
                   name="Whey WPC82 (3 KG)"
                   src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"
                 ></Product> */}
+<<<<<<< HEAD:src/components/Home.jsx
                 {products.length == 0 ? "Loading..." : ""}
                 {products.map((product) => {
                   if (product.category == "Whey") {
@@ -234,13 +247,18 @@ function Home() {
                     );
                   }
                 })}
+=======
+                {loading ? "Loading..." : ""}
+                {products.map(product => {if (product.category == "Whey") {return <Product name={product.name} src={product.image}></Product>}})}
+>>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
               </div>
             </div>
             <div>
-              <div className="viet-hoa text-3xl">
-                THỰC CHÓ NGU PHẨM SỨC KHỎE
+              <div className=" italic font-bold text-3xl hover:text-red-500">
+                THỰC PHẨM SỨC KHỎE
               </div>
               <div className="flex flex-wrap">
+<<<<<<< HEAD:src/components/Home.jsx
                 {products.length == 0 ? "Loading..." : ""}
                 {products.map((product) => {
                   if (product.category == "Thực phẩm chức năng") {
@@ -252,13 +270,23 @@ function Home() {
                     );
                   }
                 })}
+=======
+              {loading ? "Loading..." : ""}
+              {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
+>>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
+              </div>
+            </div>
+            <div>
+              <div className="italic font-bold text-3xl hover:text-red-500">Pre-Workout</div>
+              <div className="flex flex-wrap">
+                {loading ? "Loading..." : ""}
+                {products.map(product => {if (product.category == "Pre-Workout") {return <Product name={product.name} src={product.image}></Product>}})}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer />
-    </>
+    </MainLayout>
   );
 }
 export default Home;
