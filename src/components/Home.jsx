@@ -20,23 +20,40 @@ function Home() {
   const handleMouseOutWhey = () => {
     setIsHoveringWhey(false);
   };
-  
+
+  const addProduct = () =>{
+    axios.post("https://parrotsup.herokuapp.com/api/v1/product", {
+      name: "Việt ngu",
+      price: 0,
+      description: "Việt hahahahahah",
+      image: "https://trunkey2003.github.io/general-img/no-image.jpg",
+      category: "other",
+      quantity: 0,
+    })
+    .then((res) =>{
+      alert("Thành công rồi, tôi đã chinh phục API");
+    });
+  }
+
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/product")
+      .get("https://parrotsup.herokuapp.com/api/v1/product")
       .then((res) => {
         console.log(res.data[0].name);
         setProducts(res.data);
       })
       .catch((err) => {
         console.log(err);
-      }
-      );
-  }, [])
+      });
+
+    
+
+  }, []);
 
   return (
     <>
       <NavBar />
+      <button>Thêm sản phẩm</button>
       <div className="min-h-[100vh]">
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] h-[500px] bg-black flex">
           <div className="w-[25%] overflow-x-visible h-full bg-gray-200">
@@ -207,7 +224,16 @@ function Home() {
                   src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"
                 ></Product> */}
                 {products.length == 0 ? "Loading..." : ""}
-                {products.map(product => {if (product.category == "Whey") {return <Product name={product.name} src={product.image}></Product>}})}
+                {products.map((product) => {
+                  if (product.category == "Whey") {
+                    return (
+                      <Product
+                        name={product.name}
+                        src={product.image}
+                      ></Product>
+                    );
+                  }
+                })}
               </div>
             </div>
             <div>
@@ -215,8 +241,17 @@ function Home() {
                 THỰC CHÓ NGU PHẨM SỨC KHỎE
               </div>
               <div className="flex flex-wrap">
-              {products.length == 0 ? "Loading..." : ""}
-              {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
+                {products.length == 0 ? "Loading..." : ""}
+                {products.map((product) => {
+                  if (product.category == "Thực phẩm chức năng") {
+                    return (
+                      <Product
+                        name={product.name}
+                        src={product.image}
+                      ></Product>
+                    );
+                  }
+                })}
               </div>
             </div>
           </div>
