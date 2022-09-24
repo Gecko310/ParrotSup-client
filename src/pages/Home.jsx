@@ -188,7 +188,7 @@ function Home() {
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] bg-white flex">
           <div>
             <div>
-              <div className="viet-hoa text-3xl">
+              <div className="italic font-bold text-3xl hover:text-red-500">
                 WHEY PROTEIN - BỔ SUNG ĐẠM CẦN THIẾT
               </div>
               <div className="flex flex-wrap">
@@ -213,12 +213,19 @@ function Home() {
               </div>
             </div>
             <div>
-              <div className="viet-hoa text-3xl">
+              <div className=" italic font-bold text-3xl hover:text-red-500">
                 THỰC PHẨM SỨC KHỎE
               </div>
               <div className="flex flex-wrap">
               {loading ? "Loading..." : ""}
               {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
+              </div>
+            </div>
+            <div>
+              <div className="italic font-bold text-3xl hover:text-red-500">Pre-Workout</div>
+              <div className="flex flex-wrap">
+                {loading ? "Loading..." : ""}
+                {products.map(product => {if (product.category == "Pre-Workout") {return <Product name={product.name} src={product.image}></Product>}})}
               </div>
             </div>
           </div>
