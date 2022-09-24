@@ -29,7 +29,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="bg-white  shadow">
+    <nav className="bg-white border-b border-gray-300 mb-5">
       <div className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
         <div className="flex justify-between items-center">
           <div>
@@ -197,11 +197,11 @@ export default function NavBar() {
 
             <div className="ml-5"></div>
             <div className="flex items-center justify-center">
-              <a href="http://localhost:3000/home/Login" className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
+              <div className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0" Id="sign_in">
                 Sign In
-              </a>
+              </div>
               <div className="w-[2px] h-[20px] bg-gray-500 mx-5 md:mx-0"></div>
-              <a href="http://localhost:3000/home/Signup" className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
+              <a href="http://localhost:3000/Signup" className="my-1 text-sm text-gray-700 font-medium hover:text-red-500 md:mx-4 md:my-0">
                 Sign Up
               </a>
             </div>

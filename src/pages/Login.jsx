@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import MainLayout from "../layouts/MainLayout";
+
 function Login() {
     return (
-        <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-gradient-to-t from-blue-600 to-pink-600">
+        <MainLayout>
+            <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-red-600">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
-                <h1 className="text-3xl font-semibold text-center text-red-300 underline">
+                <h1 className="text-3xl font-semibold text-center black underline">
                     Sign in
                 </h1>
                 <div className="mt-6">
@@ -30,13 +33,13 @@ function Login() {
                         />
                     </div>
                     <a
-                        href="#"
-                        className="text-xs text-red-300 hover:underline"
+                        href="http://localhost:3000/home/forgetpassword"
+                        className="text-xs black font-bold hover:underline"
                     >
                         Forget Password?
                     </a>
                     <div className="mt-6">
-                        <button className="w-full px-4 py-2 text-white  bg-red-300 rounded-md hover:bg-black ">
+                        <button className="w-full px-4 py-2 text-white  bg-black rounded-md hover:opacity-60">
                             Login
                         </button>
                     </div>
@@ -47,13 +50,14 @@ function Login() {
                     Don't have an account?{" "}
                     <a
                         href="#"
-                        className="font-medium text-red-300 hover:underline"
+                        className="font-medium text-black text-bold hover:underline"
                     >
                         Sign up
                     </a>
                 </div>
             </div>
         </div>
+        </MainLayout>
     );
 }
 export default Login;
