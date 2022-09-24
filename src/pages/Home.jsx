@@ -46,26 +46,12 @@ function Home() {
       })
       .catch((err) => {
         console.log(err);
-<<<<<<< HEAD:src/components/Home.jsx
-      });
-
-    
-
-  }, []);
-
-  return (
-    <>
-      <NavBar />
-      <button>Thêm sản phẩm</button>
-=======
-      }
-      )
+      })
       .finally(() => setLoading(false))
   }, [])
 
   return (
     <MainLayout>
->>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
       <div className="min-h-[100vh]">
         <div className="w-full md:w-[60%] mx-0 md:mx-[20%] h-[500px] bg-black flex">
           <div className="w-[25%] overflow-x-visible h-full bg-gray-200">
@@ -235,22 +221,8 @@ function Home() {
                   name="Whey WPC82 (3 KG)"
                   src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"
                 ></Product> */}
-<<<<<<< HEAD:src/components/Home.jsx
-                {products.length == 0 ? "Loading..." : ""}
-                {products.map((product) => {
-                  if (product.category == "Whey") {
-                    return (
-                      <Product
-                        name={product.name}
-                        src={product.image}
-                      ></Product>
-                    );
-                  }
-                })}
-=======
                 {loading ? "Loading..." : ""}
                 {products.map(product => {if (product.category == "Whey") {return <Product name={product.name} src={product.image}></Product>}})}
->>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
               </div>
             </div>
             <div>
@@ -258,22 +230,8 @@ function Home() {
                 THỰC PHẨM SỨC KHỎE
               </div>
               <div className="flex flex-wrap">
-<<<<<<< HEAD:src/components/Home.jsx
-                {products.length == 0 ? "Loading..." : ""}
-                {products.map((product) => {
-                  if (product.category == "Thực phẩm chức năng") {
-                    return (
-                      <Product
-                        name={product.name}
-                        src={product.image}
-                      ></Product>
-                    );
-                  }
-                })}
-=======
               {loading ? "Loading..." : ""}
               {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
->>>>>>> 63fa7395307a4c6a986b1818688fbda9974e7d19:src/pages/Home.jsx
               </div>
             </div>
             <div>
