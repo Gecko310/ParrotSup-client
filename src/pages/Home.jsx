@@ -23,7 +23,7 @@ function Home() {
     setIsHoveringWhey(false);
   };
 
-  const addProduct = () =>{
+  const addProduct = () => {
     axios.post("https://parrotsup.herokuapp.com/api/v1/product", {
       name: "Việt ngu",
       price: 0,
@@ -32,9 +32,9 @@ function Home() {
       category: "other",
       quantity: 0,
     })
-    .then((res) =>{
-      alert("Thành công rồi, tôi đã chinh phục API");
-    });
+      .then((res) => {
+        alert("Thành công rồi, tôi đã chinh phục API");
+      });
   }
 
   useEffect(() => {
@@ -53,7 +53,21 @@ function Home() {
   return (
     <MainLayout>
       <div className="min-h-[100vh]">
-        <div className="w-full md:w-[60%] mx-0 md:mx-[20%] h-[500px] bg-black flex">
+        <div className="min-h-[100vh] w-full bg-cover bg-center relative mb-5" style={{ backgroundImage: 'url("/images/bg-home.jpg")' }}>\
+          <div className="absolute top-0 left-0 bg-black w-full h-full bg-opacity-60 flex items-center">
+            <div className="mx-5 md:ml-[10%] md:w-[600px] xl:w-[1000px] md:mb-[10%]">
+              <h1 className="font-black text-gray-300 text-[60px] md:text-[100px] font-apple-system">Theo đuổi ước mơ của riêng bạn</h1>
+              <h2 className="mt-4 text-gray-200 text-xl">Hard work pay off!</h2>
+              <div>
+                <button className="mt-10 px-4 py-2 bg-red-600 text-white rounded-[4px] font-medium hover:opacity-80">
+                  Khám phá ngay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full md:w-[90%] mx-0 md:mx-[5%] h-[600px] bg-black flex">
           <div className="w-[25%] overflow-x-visible h-full bg-gray-200">
             <div className="flex items-center bg-[#2F4858] text-[14px] font-medium py-1 text-white h-[50px]">
               <svg
@@ -193,15 +207,14 @@ function Home() {
                 Hướng dẫn trả góp
               </div>
             </div>
-            <div className="flex items-center h-full">
-              <img src="/images/image.png " className="h-full"></img>
+            <div className="flex items-center h-full bg-cover bg-center" style={{backgroundImage: "url('/images/image.png')"}}>
             </div>
           </div>
         </div>
-        <div className="w-full md:w-[60%] mx-0 md:mx-[20%] bg-white flex">
+        <div className="w-full md:w-[90%] mx-0 md:mx-[5%] bg-white flex">
           <div>
             <div>
-              <div className="italic font-bold text-3xl hover:text-red-500">
+              <div className="italic font-bold text-3xl hover:text-red-500 py-5">
                 WHEY PROTEIN - BỔ SUNG ĐẠM CẦN THIẾT
               </div>
               <div className="flex flex-wrap">
@@ -222,23 +235,23 @@ function Home() {
                   src="https://bizweb.dktcdn.net/thumb/medium/100/398/814/products/kfd-whey-wpc-82-3kg1.jpg?v=1647073658000"
                 ></Product> */}
                 {loading ? "Loading..." : ""}
-                {products.map(product => {if (product.category == "Whey") {return <Product name={product.name} src={product.image}></Product>}})}
+                {products.map(product => { if (product.category == "Whey") { return <Product name={product.name} src={product.image}></Product> } })}
               </div>
             </div>
             <div>
-              <div className=" italic font-bold text-3xl hover:text-red-500">
+              <div className=" italic font-bold text-3xl hover:text-red-500 py-5">
                 THỰC PHẨM SỨC KHỎE
               </div>
               <div className="flex flex-wrap">
-              {loading ? "Loading..." : ""}
-              {products.map(product => {if (product.category == "Thực phẩm chức năng") {return <Product name={product.name} src={product.image}></Product>}})}
+                {loading ? "Loading..." : ""}
+                {products.map(product => { if (product.category == "Thực phẩm chức năng") { return <Product name={product.name} src={product.image}></Product> } })}
               </div>
             </div>
             <div>
-              <div className="italic font-bold text-3xl hover:text-red-500">Pre-Workout</div>
+              <div className="italic font-bold text-3xl hover:text-red-500 py-5">Pre-Workout</div>
               <div className="flex flex-wrap">
                 {loading ? "Loading..." : ""}
-                {products.map(product => {if (product.category == "Pre-Workout") {return <Product name={product.name} src={product.image}></Product>}})}
+                {products.map(product => { if (product.category == "Pre-Workout") { return <Product name={product.name} src={product.image}></Product> } })}
               </div>
             </div>
           </div>
