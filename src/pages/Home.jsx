@@ -58,7 +58,7 @@ function Home() {
             <div className="mx-5 md:ml-[10%] md:w-[600px] xl:w-[1000px] md:mb-[10%]">
               <h1 className="font-black text-gray-300 text-[60px] md:text-[100px] font-apple-system">Theo đuổi ước mơ của riêng bạn</h1>
               <h2 className="mt-4 text-gray-200 text-xl">Hard work pay off!</h2>
-              <h3 className="mt-4 text-gray-200 text-xl">Sinh nhật vui vẻ bro HQV</h3>
+              <h3 className="mt-4 text-gray-200 text-xl">Sinh nhật vui vẻ bro HQV 🎂🎂🎂</h3>
               <div>
                 <button className="mt-10 px-4 py-2 bg-red-600 text-white rounded-[4px] font-medium hover:opacity-80">
                   Khám phá ngay
